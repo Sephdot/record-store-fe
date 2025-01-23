@@ -1,9 +1,16 @@
-﻿@inherits LayoutComponentBase
+﻿@using Record_Shop_Frontend.Components;
+@inherits LayoutComponentBase
 
+<header>
+    <div class="container is-fluid">
+        <div class="block">
+            <h1 class="title is-1 has-text-centered pt-5">Mehdzakhi-Xuglekh</h1>
+        </div>
+        <div class="block">
+            <h6 class="subtitle is-6 has-text-centered is-italic mb-3">Com'uh t'rekhveli-leybekh, elbebi-srekh, eh mehdzakhi-Xuglekh'lessekh!</h6>
+        </div>
+    </div>
+    <NavMenu />
+</header>
 @Body
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+<Footer />
