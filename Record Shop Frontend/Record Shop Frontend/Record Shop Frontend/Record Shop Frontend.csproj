@@ -9,24 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Components\Header.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Record Shop Frontend.Client\Record Shop Frontend.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Components\Header.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Components\Header.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Components\Header.razor" />
   </ItemGroup>
 
 </Project>
