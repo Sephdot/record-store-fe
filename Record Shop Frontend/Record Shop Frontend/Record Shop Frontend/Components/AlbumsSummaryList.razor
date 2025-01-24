@@ -1,0 +1,27 @@
+@using Record_Shop_Frontend.Models;
+
+<!-- display each album as a recordsummary, using suitable html for the llist
+
+iterate over each album in albums, foreach, do a recordsummary
+put each in a bulma smartgrid -->
+
+@if (Albums == null)
+	{
+		throw new Exception("aaa");
+	}
+else
+{
+	<div class="grid">
+		@foreach (var album in Albums)
+		{
+			<div class="cell">
+				<AlbumSummary Album=@album />
+			</div>
+		}
+	</div>
+}
+
+
+@code {
+	[Parameter] public List<Album>? Albums { get; set; }
+}

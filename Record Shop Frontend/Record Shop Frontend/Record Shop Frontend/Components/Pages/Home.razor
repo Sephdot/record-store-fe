@@ -2,18 +2,27 @@
 
 @page "/"
 <PageTitle>Home</PageTitle>
+<div class="box">
+	<AlbumsSummaryList Albums=@placeholderAlbums />
+</div>
 
-<AlbumSummary Album=@placeholderAlbum/>
 
 @code {
-	public Album placeholderAlbum = new()
+	public List<Album> placeholderAlbums = new List<Album>()
 		{
-			Id = 0,
-			Title = "Com'ey 1 Yuh'el",
-			Label = "Weh'eli",
-			ReleaseDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-30)),
-			Genres = new List<Genre>() { Genre.COUNTRY, Genre.METAL },
-			ArtistId = 0,
-			Artist = new() { Id = 0, Name = "Chukhi-bevjaz" }
+			new Album() 
+			{
+				Id = 0,
+				Title = "Com'ey 1 Yuh'el",
+				Label = "Weh'eli",
+				ReleaseDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-30)),
+				Genres = new List<Genre>() { Genre.COUNTRY, Genre.METAL },
+				ArtistId = 0,
+				Artist = new() 
+				{ 
+					Id = 0, 
+					Name = "Chukhi-bevjaz" 
+				}
+			}
 		};
 }
