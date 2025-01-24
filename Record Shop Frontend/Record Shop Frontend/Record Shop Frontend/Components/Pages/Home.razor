@@ -1,2 +1,19 @@
-﻿@page "/"
+﻿@using Record_Shop_Frontend.Models;
+
+@page "/"
 <PageTitle>Home</PageTitle>
+
+<AlbumSummary Album=@placeholderAlbum/>
+
+@code {
+	public Album placeholderAlbum = new()
+		{
+			Id = 0,
+			Title = "Com'ey 1 Yuh'el",
+			Label = "Weh'eli",
+			ReleaseDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-30)),
+			Genres = new List<Genre>() { Genre.COUNTRY, Genre.METAL },
+			ArtistId = 0,
+			Artist = new() { Id = 0, Name = "Chukhi-bevjaz" }
+		};
+}
