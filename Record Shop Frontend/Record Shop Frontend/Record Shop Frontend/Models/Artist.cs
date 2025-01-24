@@ -1,8 +1,7 @@
-﻿namespace record_store.Entities
+﻿namespace Record_Shop_Frontend.Models;
+
+public class Artist
 {
-    public class Artist
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = "";
-    }
+    public int Id { get; set; }
+    public string Name { get; set; } = "";
 }
