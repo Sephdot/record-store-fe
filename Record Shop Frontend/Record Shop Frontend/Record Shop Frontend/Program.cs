@@ -31,4 +31,6 @@ app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(Record_Shop_Frontend.Client._Imports).Assembly);
 
+app.UseStatusCodePagesWithRedirects("/oops/{0}");
+
 app.Run();

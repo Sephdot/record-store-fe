@@ -1,0 +1,18 @@
+﻿@page "/oops/{Status:int}"
+@using Record_Shop_Frontend.Components.Pages.Errors;
+
+<PageTitle>Oops! @Status</PageTitle>
+
+@if (Status == 404)
+{
+    <_404/>
+}
+else
+{
+    <h2>Uh-oh! Something went wrong... 👽</h2>
+    <p>Click on one of the navbar links to get back on track.</p>
+}
+
+@code{
+    [Parameter] public int Status { get; set; }
+}
