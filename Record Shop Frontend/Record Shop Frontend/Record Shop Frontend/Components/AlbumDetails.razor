@@ -1,0 +1,25 @@
+﻿@using Record_Shop_Frontend.Models;
+@rendermode InteractiveServer
+
+<EditForm Model="@Album">
+    <InputNumber @bind-Value="@Album.Id" />
+    <InputText @bind-Value="@Album.Title" />
+    <InputText @bind-Value="@Album.Label" />
+    <InputDate @bind-Value="@Album.ReleaseDate" />
+    @* Todo: add genres multiple checkboxes *@
+    <InputNumber @bind-Value="@Album.ArtistId" />
+
+</EditForm>
+<div>
+    <p>@Album.Id</p>
+    <p>@Album.Title</p>
+    <p>@Album.Label</p>
+    <p>@Album.ReleaseDate.ToString()</p>
+    <p>@Album.Artist.Name</p>
+    <button type="submit">Save Changes</button>
+</div>
+
+
+@code {
+    [Parameter] public Album Album { get; set; }
+}
