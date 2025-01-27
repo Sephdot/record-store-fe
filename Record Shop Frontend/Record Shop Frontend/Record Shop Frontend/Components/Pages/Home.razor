@@ -1,24 +1,6 @@
-﻿@using Record_Shop_Frontend.Models;
+﻿@page "/"
+
 @using Record_Shop_Frontend.Components;
+@using Record_Shop_Frontend.Models;
 
-@page "/"
 <PageTitle>Home</PageTitle>
-@if (Albums != null)
-{
-	@foreach (var a in Albums)
-	{
-		<AlbumDetails Album="@a"/>
-	}
-}
-
-@code {
-	public List<Album> Albums = new();
-	protected override async Task OnInitializedAsync()
-	{
-		using (var http = new HttpClient())
-		{
-			Albums = await http.GetFromJsonAsync<List<Album>>("http://localhost:5147/albums")
-					?? new();
-		}
-	}
-}
