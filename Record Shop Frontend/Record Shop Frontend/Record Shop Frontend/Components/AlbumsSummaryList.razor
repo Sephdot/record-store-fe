@@ -2,7 +2,9 @@
 <div>
 	@foreach (var album in Albums)
 	{
-		<AlbumSummary Album=@album />
+		<a href="https://localhost:7029/mehdzakhi/@album.Id">
+			<AlbumSummary Album=@album />
+		</a>
 	}
 </div>
 
