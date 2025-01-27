@@ -1,25 +1,40 @@
 ﻿@using Record_Shop_Frontend.Models;
+@using Microsoft.AspNetCore.Http;
 @rendermode InteractiveServer
 
-<EditForm Model="@Album">
-    <InputNumber @bind-Value="@Album.Id" />
-    <InputText @bind-Value="@Album.Title" />
-    <InputText @bind-Value="@Album.Label" />
-    <InputDate @bind-Value="@Album.ReleaseDate" />
+<EditForm FormName="AlbumDetailsForm" Model="@Album" OnSubmit=@HandleSubmit>
+    <InputText @bind-Value="@AlbumDTOToPut.Title" />
+    <InputText @bind-Value="@AlbumDTOToPut.Label" />
+    <InputDate @bind-Value="@AlbumDTOToPut.ReleaseDate" />
     @* Todo: add genres multiple checkboxes *@
-    <InputNumber @bind-Value="@Album.ArtistId" />
-
+    <InputNumber @bind-Value="@AlbumDTOToPut.ArtistId" />
+    <input class="btn" type="submit" value="Save Changes"/>
 </EditForm>
 <div>
     <p>@Album.Id</p>
     <p>@Album.Title</p>
     <p>@Album.Label</p>
+    <ul>
+        @foreach (var g in Album.Genres)
+        {
+            <li>@g.ToString()</li>
+        }
+    </ul>
     <p>@Album.ReleaseDate.ToString()</p>
     <p>@Album.Artist.Name</p>
-    <button type="submit">Save Changes</button>
 </div>
 
 
 @code {
     [Parameter] public Album Album { get; set; }
+    private AlbumDTO AlbumDTOToPut { get; set; } = new();
+
+    public async Task HandleSubmit()
+    {
+        using (var http = new HttpClient())
+        {
+            AlbumDTOToPut.Genres = Album.Genres;
+            var httpResponse = await http.PutAsJsonAsync($"http://localhost:5147/albums/{Album.Id}", AlbumDTOToPut);
+        }
+    }
 }
