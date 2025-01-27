@@ -1,0 +1,18 @@
+﻿@page "/mehdzakhi/{Id:int?}"
+
+@using Record_Shop_Frontend.Components;
+@using Record_Shop_Frontend.Models;
+
+<PageTitle>Mehdzakhi</PageTitle>
+@if (Id == null)
+{
+    <AlbumsLoader />
+}
+else
+{
+    <SingleAlbumLoader AlbumId=@Id />
+}
+
+@code {
+    [Parameter] public int? Id { get; set; }
+}

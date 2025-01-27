@@ -1,0 +1,25 @@
+@using Record_Shop_Frontend.Models;
+@using System.Net.Http;
+@using System.Net.Http.Json;
+
+@if (Album == null)
+{
+	<LoadingGraphic />
+}
+else
+{
+	<AlbumDetails Album=@Album />
+}
+
+@code {
+	[Parameter] public int? AlbumId { get; set; }
+	public Album Album { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		using (var http = new HttpClient())
+		{
+			Album = await http.GetFromJsonAsync<Album>($"http://localhost:5147/albums/{AlbumId}");
+		}
+	}
+}
